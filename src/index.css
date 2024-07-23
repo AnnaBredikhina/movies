@@ -22,6 +22,10 @@ nav {
   padding: 0 1rem;
 }
 
+.brand-logo {
+  font-family: Comic Sans MS, sans-serif;
+}
+
 main {
   flex: 1 0 auto;
 }
@@ -56,4 +60,17 @@ main {
 
 .page-footer {
   padding-top: 0;
+}
+
+/*-------------------- Медиа-запросы --------------------*/
+
+@media only screen and (max-width: 992px) {
+  .hide-on-med-and-down {
+    display: block !important;
+  }
+
+  nav .brand-logo {
+    left: unset;
+    transform: none;
+  }
 }

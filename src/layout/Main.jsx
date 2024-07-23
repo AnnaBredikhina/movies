@@ -9,12 +9,13 @@ class Main extends React.Component {
     state = {
         movies: [],
         loading: true,
+        results: 0,
     }
 
     componentDidMount() {
         fetch(`https://www.omdbapi.com/?apikey=${API_KEY}&s=Avengers`)
             .then(response => response.json())
-            .then(data => this.setState({ movies: data.Search, loading: false })
+            .then(data => this.setState({ movies: data.Search, loading: false, results: data.totalResults })
             )
             .catch((err) => {
                 console.error(err);
@@ -26,7 +27,7 @@ class Main extends React.Component {
         this.setState({ loading: true })
         fetch(`https://www.omdbapi.com/?apikey=${API_KEY}&s=${str}${type !== 'all' ? `&type=${type}` : ''}`)
             .then(response => response.json())
-            .then(data => this.setState({ movies: data.Search, loading: false })
+            .then(data => this.setState({ movies: data.Search, loading: false, results: data.totalResults })
             )
             .catch((err) => {
                 console.error(err);
@@ -35,7 +36,7 @@ class Main extends React.Component {
     }
 
     render() {
-        const { movies, loading } = this.state;
+        const { movies, loading, results } = this.state;
 
         return <main className="container content">
             <Search searchMovies={this.searchMovies} />
@@ -44,7 +45,7 @@ class Main extends React.Component {
                 // movies.length ? (
                 loading ? (<Preloader />
                 ) : (
-                    <Movies movies={movies} />
+                        <Movies movies={movies} results={results} />
                 )
             }
         </main>
