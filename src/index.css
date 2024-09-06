@@ -40,13 +40,33 @@ main {
   gap: 1rem;
 }
 
+.movie {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-image {
+  flex-grow: 1;
+  height: 100%;
+}
+
 .card .card-title {
   font-size: 20px;
+}
+
+.input-field {
+  margin-bottom: 0;
 }
 
 .search-btn {
   position: absolute;
   right: 0;
+}
+
+.example {
+  margin-top: 0;
+  opacity: 0.8;
+  font-size: 14px;
 }
 
 .radio-btn label {

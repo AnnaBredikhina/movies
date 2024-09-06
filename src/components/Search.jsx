@@ -33,6 +33,7 @@ class Search extends React.Component {
                 />
                 <button className="btn waves-effect waves-light search-btn" onClick={() => this.props.searchMovies(this.state.search, this.state.type)}>search</button>
             </div>
+            <p className="example">For example: game / game of thrones</p>
 
             <div className="radio-btn">
                 <label>
